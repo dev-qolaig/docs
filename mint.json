@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:dev@qolaig.com"
     }
   ],
   "topbarCtaButton": {
@@ -30,17 +30,17 @@
   "anchors": [
     {
       "name": "Qolaig Home",
-      "icon": "home",
+      "icon": "house",
       "url": "https://www.qolaig.com/"
     },
     {
       "name": "Your API Profile",
-      "icon": "profile",
+      "icon": "user",
       "url": "http://localhost:5001/profile"
     },
     {
       "name": "Contact us",
-      "icon": "letter",
+      "icon": "envelope",
       "url": "mailto:dev@qolaig.com"
     }
   ],
