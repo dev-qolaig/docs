@@ -22,63 +22,40 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Your Profile",
+    "url": "http://localhost:5001/profile"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Qolaig Home",
+      "icon": "home",
+      "url": "https://www.qolaig.com/"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Your API Profile",
+      "icon": "profile",
+      "url": "http://localhost:5001/profile"
     },
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "Contact us",
+      "icon": "letter",
+      "url": "mailto:dev@qolaig.com"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
+        "introduction"
       ]
     },
     {
       "group": "Endpoint",
       "pages": [
-        "api-reference/endpoint/get_articles",
-        "api-reference/endpoint/get_articles_filtered"
+        "endpoint/get_articles",
+        "endpoint/get_articles_filtered"
       ]
     }
   ],
@@ -86,6 +63,5 @@
     "x": "https://x.com/mintlify",
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
-  },
-  "openapi":["/openapi.yml"]
+  }
 }
