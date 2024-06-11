@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5001"
+      "url": "https://press-review.qolaig.app/api"
     }
   ],
   "security": [
@@ -113,6 +113,58 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          }
+        ,
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter articles by category.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Fetch articles from a specific date. Defaults to the current date if not provided.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "date_start",
+            "in": "query",
+            "description": "The start date for a date range query.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "date_end",
+            "in": "query",
+            "description": "The end date for a date range query.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "Filter articles by their sources. Can handle both single and multiple sources.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         ],
