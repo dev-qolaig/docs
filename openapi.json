@@ -29,7 +29,8 @@
             "description": "Filter articles by category.",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": "All categories"
             }
           },
           {
@@ -39,7 +40,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "date"
+              "format": "date",
+              "default": "Maximum Date (yesterday)"
             }
           },
           {
@@ -70,7 +72,12 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "default": "All sources",
+                "enum": [
+                  "Le Monde",
+                  "Les Echos"
+                ]
               }
             }
           }
@@ -121,7 +128,9 @@
             "description": "Filter articles by category.",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": "All categories"
+
             }
           },
           {
@@ -131,7 +140,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "date"
+              "format": "date",
+              "default": "Maximum Date (yesterday)"
             }
           },
           {
@@ -162,7 +172,25 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "default": "All sources",
+                "enum": [
+                  "Le Monde",
+                  "Les Echos"
+                ]
+              }
+            }
+          },
+          {
+            "name": "soft_filter",
+            "in": "query",
+            "description": "If True, will return a filter boolean to check if the article title is to the prompt. If False (default), will return the filtered articles.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "default": "False"
               }
             }
           }
