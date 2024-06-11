@@ -1,0 +1,15 @@
+/* Customize the Send button */
+.api-playground .send-button {
+  background-color: #FF5733;
+  /* Replace with your desired color */
+  color: #FFFFFF;
+  /* Text color */
+}
+
+/* Customize the GET button */
+.api-playground .http-method.GET {
+  background-color: #3498DB;
+  /* Replace with your desired color */
+  color: #FFFFFF;
+  /* Text color */
+}

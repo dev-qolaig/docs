@@ -15,7 +15,7 @@
   ],
   "security": [
     {
-      "bearerAuth": []
+      "tokenAuth": []
     }
   ],
   "paths": {
@@ -114,8 +114,7 @@
             "schema": {
               "type": "string"
             }
-          }
-        ,
+          },
           {
             "name": "category",
             "in": "query",
@@ -221,38 +220,38 @@
           "title": {
             "type": "string"
           },
-                    "source": {
-                      "type": "string"
-                    },
-                    "category": {
-                      "type": "string"
-                    },
-                    "category_source": {
-                      "type": "string"
-                    },
-                    "content": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "Error": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "securitySchemes": {
-                "bearerAuth": {
-                  "type": "http",
-                  "scheme": "bearer",
-                  "bearerFormat": "JWT"
-                }
-              }
-            }
+          "source": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "category_source": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
           }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "tokenAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "token"
+      }
+    }
+  }
+}
