@@ -184,7 +184,7 @@
           {
             "name": "soft_filter",
             "in": "query",
-            "description": "If True, will return a filter boolean to check if the article title is to the prompt. If False (default), will return the filtered articles.",
+            "description": "If True, will return a boolean filter to check if the article title is to the prompt. If False (default), will return the filtered articles.",
             "required": false,
             "schema": {
               "type": "array",
