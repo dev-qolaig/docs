@@ -187,10 +187,10 @@
             "description": "If True, will return a boolean filter to check if the article title is to the prompt. If False (default), will return the filtered articles.",
             "required": false,
             "schema": {
-              "items": {
+
                 "type": "boolean",
                 "default": "False"
-              }
+
             }
           }
         ],
