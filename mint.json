@@ -15,9 +15,6 @@
       "to": "#29C0E0"
     }
   },
-  "styles": {
-    "customCss": "custom.css"
-  },
   "topbarLinks": [
     {
       "name": "Support",
@@ -56,10 +53,17 @@
       ]
     },
     {
-      "group": "Endpoint",
+      "group": "Request Articles",
       "pages": [
         "endpoint/get_articles",
-        "endpoint/get_articles_filtered",
+        "endpoint/get_articles_filtered"
+
+      ]
+    },
+    {
+      "group": "Format",
+      "pages": [
+
         "endpoint/post_generate_pdf"
       ]
     }

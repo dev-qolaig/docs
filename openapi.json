@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://press-review.qolaig.app/api"
+      "url": "https://localhost:5001/"
     }
   ],
   "security": [
@@ -230,43 +230,77 @@
     },
     "/generate_pdf": {
       "post": {
-        "description": "Generates a PDF based on uploaded JSON data.",
-        "requestBody": {
-          "description": "JSON file containing data to be included in the PDF.",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "title": {
-                    "type": "string"
-                  },
-                  "content": {
-                    "type": "string"
-                  }
-                }
+        "description": "Fetches articles based on optional query parameters. Applies credit charges based on the number of unique dates in the fetched articles.",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter articles by category.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "All categories"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Fetch articles from a specific date. Defaults to the current date if not provided.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "default": "Maximum Date (yesterday)"
+            }
+          },
+          {
+            "name": "date_start",
+            "in": "query",
+            "description": "The start date for a date range query.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "date_end",
+            "in": "query",
+            "description": "The end date for a date range query.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "Filter articles by their sources. Can handle both single and multiple sources.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "default": "All sources",
+                "enum": [
+                  "Le Monde",
+                  "Les Echos"
+                ]
               }
             }
           }
-        },
+        ],
         "responses": {
           "200": {
-            "description": "PDF generated successfully",
-            "content": {
-              "application/pdf": {
-                "schema": {
-                  "$ref": "#/components/schemas/PDFResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid input",
+            "description": "Successful retrieval of articles",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Article"
+                  }
                 }
               }
             }
@@ -283,7 +317,8 @@
           }
         }
       }
-    },
+    }
+  },
   "components": {
     "schemas": {
       "Article": {
@@ -337,4 +372,4 @@
       }
     }
   }
-}}
+}
