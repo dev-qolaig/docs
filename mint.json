@@ -59,7 +59,8 @@
       "group": "Endpoint",
       "pages": [
         "endpoint/get_articles",
-        "endpoint/get_articles_filtered"
+        "endpoint/get_articles_filtered",
+        "endpoint/post_generate_pdf"
       ]
     }
   ],

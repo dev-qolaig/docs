@@ -130,7 +130,6 @@
             "schema": {
               "type": "string",
               "default": "All categories"
-
             }
           },
           {
@@ -187,10 +186,8 @@
             "description": "If True, will return a boolean filter to check if the article title is relevant to the prompt. If False (default), will return the filtered articles.",
             "required": false,
             "schema": {
-
-                "type": "boolean",
-                "default": "False"
-
+              "type": "boolean",
+              "default": "False"
             }
           }
         ],
@@ -230,8 +227,63 @@
           }
         }
       }
-    }
-  },
+    },
+    "/generate_pdf": {
+      "post": {
+        "description": "Generates a PDF based on uploaded JSON data.",
+        "requestBody": {
+          "description": "JSON file containing data to be included in the PDF.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PDF generated successfully",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/PDFResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
   "components": {
     "schemas": {
       "Article": {
@@ -261,6 +313,10 @@
           }
         }
       },
+      "PDFResponse": {
+        "type": "file",
+        "format": "PDF"
+      },
       "Error": {
         "type": "object",
         "properties": {
@@ -281,4 +337,4 @@
       }
     }
   }
-}
+}}
