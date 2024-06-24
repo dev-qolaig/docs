@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://localhost:5001/"
+      "url": "https://presse-review.qolaig.app/api/"
     }
   ],
   "security": [
@@ -230,67 +230,15 @@
     },
     "/generate_pdf": {
       "post": {
-        "description": "Fetches articles based on optional query parameters. Applies credit charges based on the number of unique dates in the fetched articles.",
-        "parameters": [
-          {
-            "name": "category",
-            "in": "query",
-            "description": "Filter articles by category.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "All categories"
-            }
-          },
-          {
-            "name": "date",
-            "in": "query",
-            "description": "Fetch articles from a specific date. Defaults to the current date if not provided.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date",
-              "default": "Maximum Date (yesterday)"
-            }
-          },
-          {
-            "name": "date_start",
-            "in": "query",
-            "description": "The start date for a date range query.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date"
-            }
-          },
-          {
-            "name": "date_end",
-            "in": "query",
-            "description": "The end date for a date range query.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date"
-            }
-          },
-          {
-            "name": "source",
-            "in": "query",
-            "description": "Filter articles by their sources. Can handle both single and multiple sources.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "default": "All sources",
-                "enum": [
-                  "Le Monde",
-                  "Les Echos"
-                ]
-              }
-            }
-          }
+        "summary": "Generates a PDF from uploaded JSON data",
+        "operationId": "generatePdf",
+        "tags": [
+          "PDF Generation"
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/FileUpload"
+        }
+        ,
         "responses": {
           "200": {
             "description": "Successful retrieval of articles",
@@ -299,7 +247,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Article"
+                    "$ref": "#/components/schemas/PDF"
                   }
                 }
               }
@@ -316,6 +264,13 @@
             }
           }
         }
+        ,
+        "x-codeSamples": [
+          {
+            "lang": "Python",
+            "source": "import requests\n\nurl = 'https://presse-review.qolaig.app/api/generate_pdf'\n\nfiles = {'data': ('data.json', open('data.json', 'rb'), 'application/json')}\n\nheaders = {'token': '<api-key>'}\n\nresponse = requests.post(url, files=files, headers=headers)\n\nwith open('output.pdf', 'wb') as pdf_file:\n  pdf_file.write(response.content)\n\nfiles['data'].close()"
+          }
+        ]
       }
     }
   },
@@ -348,9 +303,14 @@
           }
         }
       },
-      "PDFResponse": {
-        "type": "file",
-        "format": "PDF"
+      "PDF": {
+        "type": "object",
+        "properties": {
+          "pdfFile": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
       },
       "Error": {
         "type": "object",
@@ -370,6 +330,27 @@
         "in": "header",
         "name": "token"
       }
+    },
+    "requestBodies": {
+      "FileUpload": {
+        "description": "JSON file to be converted into PDF",
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "The JSON file to process into a PDF"
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      }
     }
+
   }
 }
