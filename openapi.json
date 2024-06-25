@@ -268,7 +268,7 @@
         "x-codeSamples": [
           {
             "lang": "Python",
-            "source": "import requests\n\nurl = 'https://presse-review.qolaig.app/api/generate_pdf'\n\nfiles = {'data': ('data.json', open('data.json', 'rb'), 'application/json')}\n\nheaders = {'token': '<api-key>'}\n\nresponse = requests.post(url, files=files, headers=headers)\n\nwith open('output.pdf', 'wb') as pdf_file:\n  pdf_file.write(response.content)\n\nfiles['data'].close()"
+            "source": "import requests\n\n# Get the articles from the API\nurl = 'https: //press-review.qolaig.app/api/articles'\n\n# Add parameters to the URL\nquerystring = {'category':'economie'}\n\n# Add the API key to the headers\nheaders = {'token': '<api-key>'}\n\n# Store the response in a variable\nresponse = requests.request('GET', url, headers=headers, params=querystring)\n\n# Generate the PDF from the articles\nurl = 'http://localhost:5001/api/generate_pdf'\n\n# Prepare the file data as a dictionary in the form expected for multipart/form-data\nfiles = {'data': ('data', response.text, 'text/plain')}\n\n# Send the POST request with the file in multipart/form-data\npdf = requests.post(url, files=files, headers=headers)\n\noutput_path = 'NAME_OF_YOUR_PDF.pdf'\n\n# Save the PDF content to a file\nwith open(output_path, 'wb') as pdf_file:\n    pdf_file.write(pdf.content)"
           }
         ]
       }
