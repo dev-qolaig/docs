@@ -29,8 +29,23 @@
             "description": "Filter articles by category.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "All categories"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "default": "All categories",
+                "enum": [
+                  "economie",
+                  "finance",
+                  "immobilier",
+                  "tech",
+                  "industrie",
+                  "politique",
+                  "international",
+                  "france",
+                  "patrimoine",
+                  "innovation"
+                ]
+              }
             }
           },
           {
@@ -128,8 +143,23 @@
             "description": "Filter articles by category.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "All categories"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "default": "All categories",
+                "enum": [
+                  "economie",
+                  "finance",
+                  "immobilier",
+                  "tech",
+                  "industrie",
+                  "politique",
+                  "international",
+                  "france",
+                  "patrimoine",
+                  "innovation"
+                ]
+              }
             }
           },
           {
