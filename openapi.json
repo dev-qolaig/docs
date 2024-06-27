@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://presse-review.qolaig.app/api/"
+      "url": "https://press-review.qolaig.app/api/"
     }
   ],
   "security": [
