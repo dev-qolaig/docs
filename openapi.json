@@ -82,7 +82,7 @@
           {
             "name": "source",
             "in": "query",
-            "description": "Filter articles by their sources. Can handle both single and multiple sources.",
+            "description": "Filter articles by their sources. Can handle both single and multiple sources. By default, all sources that you have access to are included.",
             "required": false,
             "schema": {
               "type": "array",
@@ -196,7 +196,7 @@
           {
             "name": "source",
             "in": "query",
-            "description": "Filter articles by their sources. Can handle both single and multiple sources.",
+            "description": "Filter articles by their sources. Can handle both single and multiple sources. By default, all sources that you have access to are included.",
             "required": false,
             "schema": {
               "type": "array",
