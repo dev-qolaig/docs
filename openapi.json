@@ -54,7 +54,7 @@
             "description": "Fetch articles from a specific date. Defaults to the current date if not provided.",
             "required": false,
             "schema": {
-              "type": "string",
+              "type": "string (YYYY-MM-DD)",
               "format": "date",
               "default": "Maximum Date (yesterday)"
             }
@@ -65,7 +65,7 @@
             "description": "The start date for a date range query.",
             "required": false,
             "schema": {
-              "type": "string",
+              "type": "string (YYYY-MM-DD)",
               "format": "date"
             }
           },
@@ -75,7 +75,7 @@
             "description": "The end date for a date range query.",
             "required": false,
             "schema": {
-              "type": "string",
+              "type": "string (YYYY-MM-DD)",
               "format": "date"
             }
           },
@@ -169,7 +169,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "date",
+              "format": "date (YYYY-MM-DD)",
               "default": "Maximum Date (yesterday)"
             }
           },
@@ -179,7 +179,7 @@
             "description": "The start date for a date range query.",
             "required": false,
             "schema": {
-              "type": "string",
+              "type": "string (YYYY-MM-DD)",
               "format": "date"
             }
           },
@@ -189,7 +189,7 @@
             "description": "The end date for a date range query.",
             "required": false,
             "schema": {
-              "type": "string",
+              "type": "string (YYYY-MM-DD)",
               "format": "date"
             }
           },
