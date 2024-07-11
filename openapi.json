@@ -51,10 +51,10 @@
           {
             "name": "date",
             "in": "query",
-            "description": "Fetch articles from a specific date. Defaults to the current date if not provided.",
+            "description": "Fetch articles from a specific date. Defaults to the current date if not provided. Format: YYYY-MM-DD.",
             "required": false,
             "schema": {
-              "type": "string (YYYY-MM-DD)",
+              "type": "string",
               "format": "date",
               "default": "Maximum Date (yesterday)"
             }
@@ -62,20 +62,20 @@
           {
             "name": "date_start",
             "in": "query",
-            "description": "The start date for a date range query.",
+            "description": "The start date for a date range query. Format: YYYY-MM-DD.",
             "required": false,
             "schema": {
-              "type": "string (YYYY-MM-DD)",
+              "type": "string",
               "format": "date"
             }
           },
           {
             "name": "date_end",
             "in": "query",
-            "description": "The end date for a date range query.",
+            "description": "The end date for a date range query. Format: YYYY-MM-DD.",
             "required": false,
             "schema": {
-              "type": "string (YYYY-MM-DD)",
+              "type": "string",
               "format": "date"
             }
           },
@@ -165,31 +165,31 @@
           {
             "name": "date",
             "in": "query",
-            "description": "Fetch articles from a specific date. Defaults to the current date if not provided.",
+            "description": "Fetch articles from a specific date. Defaults to the current date if not provided. Format: YYYY-MM-DD.",
             "required": false,
             "schema": {
               "type": "string",
-              "format": "date (YYYY-MM-DD)",
+              "format": "date",
               "default": "Maximum Date (yesterday)"
             }
           },
           {
             "name": "date_start",
             "in": "query",
-            "description": "The start date for a date range query.",
+            "description": "The start date for a date range query. Format: YYYY-MM-DD.",
             "required": false,
             "schema": {
-              "type": "string (YYYY-MM-DD)",
+              "type": "string",
               "format": "date"
             }
           },
           {
             "name": "date_end",
             "in": "query",
-            "description": "The end date for a date range query.",
+            "description": "The end date for a date range query. Format: YYYY-MM-DD.",
             "required": false,
             "schema": {
-              "type": "string (YYYY-MM-DD)",
+              "type": "string",
               "format": "date"
             }
           },
