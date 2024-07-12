@@ -260,7 +260,7 @@
     },
     "/generate_pdf": {
       "post": {
-        "summary": "Generates a PDF from uploaded JSON data",
+        "summary": "Generates a PDF from uploaded JSON data. WARNING: The playground does not work with this endpoint. Check the Python code to see how to implement it.",
         "operationId": "generatePdf",
         "tags": [
           "PDF Generation"

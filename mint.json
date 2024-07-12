@@ -71,13 +71,7 @@
   "openapi": "/openapi.json",
   "footerSocials": {
     "linkedin": "https://www.linkedin.com/company/qolaig"
-  },
-
-    "api": {
-      "playground": {
-        "mode": "simple"
-      }
-    }
+  }
 
 
 }
