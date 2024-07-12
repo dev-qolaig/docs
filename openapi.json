@@ -131,7 +131,7 @@
           {
             "name": "prompt",
             "in": "query",
-            "description": "The prompt used for AI-driven filtering of article titles.",
+            "description": "The prompt used for AI-driven filtering of article titles (required parameter). For the prompt to be effective, list all the keywords that you want the articles to be related to, separated by commas. Example: 'economy, finance, stock market, artificial intelligence'.",
             "required": true,
             "schema": {
               "type": "string"
